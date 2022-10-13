@@ -3,7 +3,8 @@ BUILD_DIR=../build/
 include $(BUILD_DIR)/software/include/generated/variables.mak
 include $(SOC_DIRECTORY)/software/common.mak
 
-OBJECTS=main.o
+OBJECTS=main.o 
+OBJECTS+=crt0.o 
 
 all: rgb.bin
 
@@ -18,7 +19,6 @@ rgb.elf: $(OBJECTS)
 	$(CC) $(LDFLAGS) \
 		-T linker.ld \
 		-N -o $@ \
-		$ crt0.o \
 		$(OBJECTS) \
 		$(PACKAGES:%=-L$(BUILD_DIR)/software/%) \
 		$(LIBS:lib%=-l%)
@@ -39,4 +39,4 @@ crt0.o: $(CPU_DIRECTORY)/crt0.S
 clean:
 	$(RM) $(OBJECTS) $(OBJECTS:.o=.d) rgb.elf rgb.bin .*~ *~
 
-.PHONY: all main.o clean load
+.PHONY: all main.o crt0.o clean load
