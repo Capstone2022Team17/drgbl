@@ -108,7 +108,7 @@ static void console_service(void)
         rgb();
     } else if (strcmp(token, "reboot") == 0) {
         reboot();
-    }
+    } 
 	prompt();
 }
 
