@@ -3,10 +3,37 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <generated/soc.h>
+#include <generated/csr.h>
 #include <irq.h>
 #include <uart.h>
 #include <console.h>
-#include <generated/csr.h>
+
+
+
+
+void isr(void);
+
+#ifdef CONFIG_CPU_HAS_INTERRUPT
+
+void isr(void)
+{
+	__attribute__((unused)) unsigned int irqs;
+
+	irqs = irq_pending() & irq_getmask();
+
+#ifndef UART_POLLING
+	if(irqs & (1 << UART_INTERRUPT))
+		uart_isr();
+#endif
+}
+
+#else
+
+void isr(void){};
+
+#endif
+
 
 static char *readstr(void)
 {
@@ -116,6 +143,7 @@ int main(void)
 {
 #ifdef CONFIG_CPU_HAS_INTERRUPT
 	irq_setmask(0);
+	printf("Config cpu has an interrupt!\n");
 	irq_setie(1);
 #endif
 	uart_init();

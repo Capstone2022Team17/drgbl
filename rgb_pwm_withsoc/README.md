@@ -1,7 +1,5 @@
 ## Beginnings of PWM SoC program
 
-Alrighty guys, this is how you run this super basic SoC.
-
 1. Navigate into this directory, source vivado and run 'python3 rgb_soc.py'. A build directory will be created.
 2. For now, use Vivado hardware manager to load the bitstream from build/gateware to the board.
 3. Navigate into the 'program' directory, run 'make all'

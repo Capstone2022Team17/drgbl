@@ -97,52 +97,6 @@ def main():
         NextState("INCREMENT"), NextValue(rgb_module.pwmCount, 0),
     )
 
-    # rgb_fsm.act("IDLE",
-    #     NextValue(rgb_module.ticked_up, 0),
-    #     NextState("INCREMENT")
-    # )
-    # #rgb color inc/dec state machine
-    # rgb_fsm.act("INCREMENT", NextState("INC_WAITING"),
-    #     If(rgb_module.RedCount[8:16] != 0xff, NextValue(rgb_module.RedCount, rgb_module.RedCount + 1)
-    #     ).Elif (rgb_module.BlueCount[8:16] != 0xff, NextValue(rgb_module.BlueCount, rgb_module.BlueCount + 1)
-    #     ).Elif (rgb_module.GreenCount[8:16] != 0xff, NextValue(rgb_module.GreenCount, rgb_module.GreenCount + 1)
-    #     ).Else (
-    #         NextState("DECREMENT")
-    #     )
-    # )
-
-    # rgb_fsm.act("INC_WAITING", If(rgb_module.ticked_up == 0x0 and rgb_module.pwmCount[24:32] == 0xff, NextValue(rgb_module.ticked_up, 1), NextState("INCREMENT")).Elif(rgb_module.pwmCount[24:32] != 0xff, NextValue(rgb_module.ticked_up, 0)))
-
-    # rgb_fsm.act("DECREMENT",
-    #     If(rgb_module.RedCount[8:16] != 0x00, NextValue(rgb_module.RedCount, rgb_module.RedCount - 1)
-    #     ).Elif (rgb_module.BlueCount[8:16] != 0x00, NextValue(rgb_module.BlueCount, rgb_module.BlueCount - 1)
-    #     ).Elif (rgb_module.GreenCount[8:16] != 0x00, NextValue(rgb_module.GreenCount, rgb_module.GreenCount - 1)
-    #     ).Else (
-    #         NextState("INCREMENT")
-    #     )
-    # )
-
-    # #pwm state machine
-    # pwm_fsm = FSM(reset_state = "IDLE")
-    # rgb_module.submodules += pwm_fsm
-    # pwm_fsm.act("IDLE",
-    #     NextState("PWM_ON")
-    # )
-    # pwm_fsm.act("PWM_ON",
-    #     NextValue(rgb_module.pwmCount, rgb_module.pwmCount + 1),
-    #     If (rgb_module.pwmCount[24:32] == rgb_module.RedCount[8:16],
-    #         NextState("PWM_OFF"),
-    #         leds[2].eq(1)
-    #     )
-    # )
-    # pwm_fsm.act("PWM_OFF",
-    #     NextValue(rgb_module.pwmCount, rgb_module.pwmCount + 1),
-    #     If (rgb_module.pwmCount[24:32] == 0xff,
-    #         NextState("PWM_ON"),
-    #         leds[2].eq(0)
-    #     )
-    # )
-
     rgb_module.comb += leds[0].eq(rgb_module.pwmCount < rgb_module.BlueCount)
     rgb_module.comb += leds[1].eq(rgb_module.pwmCount < rgb_module.GreenCount)
     rgb_module.comb += leds[2].eq(rgb_module.pwmCount < rgb_module.RedCount)
