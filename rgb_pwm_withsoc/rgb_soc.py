@@ -13,14 +13,19 @@ from litex.soc.cores import dna, xadc
 from litex.soc.cores.spi import SPIMaster
 from litex.soc.interconnect.csr import CSRStorage, AutoCSR
 
+from litex.build.openocd import OpenOCD
+
 # IOs ----------------------------------------------------------------------------------------------
 
 _io = [
 
     ("user_rgb_led", 0,
-        Subsignal("r", Pins("N16")),
-        Subsignal("g", Pins("R11")),
-        Subsignal("b", Pins("G14")),
+        Subsignal("r_one", Pins("N15")),
+        Subsignal("g_one", Pins("M16")),
+        Subsignal("b_one", Pins("R12")),
+        Subsignal("r_two", Pins("N16")),
+        Subsignal("g_two", Pins("R11")),
+        Subsignal("b_two", Pins("G14")),
         IOStandard("LVCMOS33"),
     ),
 
@@ -46,14 +51,20 @@ _io = [
 
 class RGBLed(Module, AutoCSR):
     def __init__(self, pads):
-        self.red = CSRStorage(len(pads.r))
-        self.green = CSRStorage(len(pads.g))
-        self.blue = CSRStorage(len(pads.b))
+        self.red_one = CSRStorage(len(pads.r_one))
+        self.green_one = CSRStorage(len(pads.g_one))
+        self.blue_one = CSRStorage(len(pads.b_one))
+        self.red_two = CSRStorage(len(pads.r_two))
+        self.green_two = CSRStorage(len(pads.g_two))
+        self.blue_two = CSRStorage(len(pads.b_two))
 
         self.comb += [
-            pads.r.eq(self.red.storage),
-            pads.g.eq(self.green.storage),
-            pads.b.eq(self.blue.storage)
+            pads.r_one.eq(self.red_one.storage),
+            pads.g_one.eq(self.green_one.storage),
+            pads.b_one.eq(self.blue_one.storage),
+            pads.r_two.eq(self.red_two.storage),
+            pads.g_two.eq(self.green_two.storage),
+            pads.b_two.eq(self.blue_two.storage)
         ]
         # self.submodules.r = PWM(pads.r)
         # self.submodules.g = PWM(pads.g)
@@ -67,6 +78,9 @@ class Platform(XilinxPlatform):
 
     def __init__(self):
         XilinxPlatform.__init__(self, "xc7a100t-csg324-1", _io, toolchain="vivado")
+
+    def create_programmer(self):
+        return OpenOCD("openocd_xc7_ft2232.cfg", "bscan_spi_xc7a100t.bit")
 
 # Design -------------------------------------------------------------------------------------------
 
@@ -107,4 +121,7 @@ soc = BaseSoC(platform)
 
 builder = Builder(soc, output_dir="build", csr_csv="csr.csv")
 builder.build(build_name="top")
+
+programmer = platform.create_programmer()
+programmer.load_bitstream("build/gateware/top.bit")
 

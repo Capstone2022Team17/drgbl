@@ -104,16 +104,73 @@ static void help(void)
 
 static void rgb(void)
 {
-    puts("execute rgb command here");
-	printf("Before write rgb red read: %lx\n", rgbled_red_read());
-    rgbled_red_write(0x1);
-	printf("After write rgb red read: %lx\n", rgbled_red_read());
-	printf("Before write rgb green read: %lx\n", rgbled_green_read());
-    rgbled_green_write(0x1);
-	printf("After write rgb green read: %lx\n", rgbled_green_read());
-	printf("Before write rgb blue read: %lx\n", rgbled_blue_read());
-    rgbled_blue_write(0x1);
-	printf("After write rgb blue read: %lx\n", rgbled_blue_read());
+    // puts("execute rgb command here");
+	// printf("Before write rgb red read: %lx\n", rgbled_red_read());
+    // rgbled_red_write(0x1);
+	// printf("After write rgb red read: %lx\n", rgbled_red_read());
+	// printf("Before write rgb green read: %lx\n", rgbled_green_read());
+    // rgbled_green_write(0x1);
+	// printf("After write rgb green read: %lx\n", rgbled_green_read());
+	// printf("Before write rgb blue read: %lx\n", rgbled_blue_read());
+    // rgbled_blue_write(0x1);
+	// printf("After write rgb blue read: %lx\n", rgbled_blue_read());
+
+
+	while(1) {
+
+		if (readchar_nonblock()) {
+			rgbled_red_two_write(0);
+			break;
+		}
+
+		for (int i = 0; i < 100; ++i) {
+			rgbled_red_one_write(1);
+			rgbled_blue_two_write(1);
+			busy_wait(20 - (i / 5));
+			rgbled_red_one_write(0);
+			rgbled_blue_two_write(0);
+			rgbled_green_one_write(1);
+			rgbled_red_two_write(1);
+			busy_wait(i / 5);
+			rgbled_green_one_write(0);
+			rgbled_red_two_write(0);
+		}
+
+		if (readchar_nonblock()) {
+			break;
+		}
+
+		for (int i = 0; i < 100; ++i) {
+			rgbled_green_one_write(1);
+			rgbled_red_two_write(1);
+			busy_wait(20 - (i / 5));
+			rgbled_green_one_write(0);
+			rgbled_red_two_write(0);
+			rgbled_blue_one_write(1);
+			rgbled_green_two_write(1);
+			busy_wait(i / 5);
+			rgbled_blue_one_write(0);
+			rgbled_green_two_write(0);
+		}
+
+		if (readchar_nonblock()) {
+			break;
+		}
+
+		for (int i = 0; i < 100; ++i) {
+			rgbled_blue_one_write(1);
+			rgbled_green_two_write(1);
+			busy_wait(20 - (i / 5));
+			rgbled_blue_one_write(0);
+			rgbled_green_two_write(0);
+			rgbled_red_one_write(1);
+			rgbled_blue_two_write(1);
+			busy_wait(i / 5);
+			rgbled_red_one_write(0);
+			rgbled_blue_two_write(0);
+		}
+	}
+
 }
 
 static void reboot(void)
