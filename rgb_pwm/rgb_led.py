@@ -1,9 +1,15 @@
+"""
+RGB Led using Litex to control the RGB leds on a Nexys DDR 4 Development Board
+"""
+
+# pylint: disable = unused-wildcard-import
 from migen import *
 from litex_boards.platforms import digilent_nexys4ddr
 
+# pylint: disable = unused-wildcard-import
 from litex.build.generic_platform import *
 
-_rgb_io = {
+RGB_IO = {
     ("rgb_led", 0, Pins("R12"), IOStandard("LVCMOS33")),
     ("rgb_led", 1, Pins("M16"), IOStandard("LVCMOS33")),
     ("rgb_led", 2, Pins("N15"), IOStandard("LVCMOS33")),
@@ -13,52 +19,64 @@ _rgb_io = {
 }
 
 
-class RGB_led(Module):
-    def __init__(self) -> None:
-        super().__init__()
+class RgbLed(Module):
+    """
+    Wrapper class for Module for RGB_Led
+    """
+
+    def __init__(self):
+        self.ticks = Signal(32)
+        self.red_count = Signal(8)
+        self.green_count = Signal(8)
+        self.blue_count = Signal(8)
+        self.pwm_count = Signal(8)
+        self.ticked_up = Signal(1)
+        self.delay_count = Signal(32)
+        self.red_inc = Signal(1)
+        self.blue_inc = Signal(1)
+        self.green_inc = Signal(1)
 
 
 def main():
+    """
+    This is the main function for rgb_led
+    """
     nexys_platform = digilent_nexys4ddr.Platform()
 
-    nexys_platform.add_extension(_rgb_io)
+    nexys_platform.add_extension(RGB_IO)
 
-    rgb_module = RGB_led()
-    rgb_module.ticks = Signal(32)
-    rgb_module.RedCount = Signal(8)
-    rgb_module.GreenCount = Signal(8)
-    rgb_module.BlueCount = Signal(8)
-    rgb_module.pwmCount = Signal(8)
-    rgb_module.ticked_up = Signal(1)
-    rgb_module.delay_count = Signal(32)
-    rgb_module.red_inc = Signal(1)
-    rgb_module.blue_inc = Signal(1)
-    rgb_module.green_inc = Signal(1)
-
+    rgb_module = RgbLed()
 
     rgb_fsm = FSM(reset_state="IDLE")
     rgb_module.submodules += rgb_fsm
 
     leds = []
 
-    delay = 0xfff
+    delay = 0xFFF
 
     ctr_leds = []
     for idx in range(16):
         ctr_leds.append(nexys_platform.request("user_led", idx))
 
     for idx in range(6):
-        switch = nexys_platform.request("user_sw", idx)
+        # switch = nexys_platform.request("user_sw", idx)
         led = nexys_platform.request("rgb_led", idx)
         leds.append(led)
         # rgb_module.comb += led.eq(switch)
 
-    rgb_fsm.act("IDLE", NextValue(rgb_module.RedCount, 0), NextValue(rgb_module.BlueCount, 0xFF), NextValue(rgb_module.GreenCount, 0), NextValue(rgb_module.pwmCount, 0), NextState("INCREMENT"))
+    rgb_fsm.act(
+        "IDLE",
+        NextValue(rgb_module.red_count, 0),
+        NextValue(rgb_module.blue_count, 0xFF),
+        NextValue(rgb_module.green_count, 0),
+        NextValue(rgb_module.pwm_count, 0),
+        NextState("INCREMENT"),
+    )
 
     rgb_fsm.act(
         "INCREMENT",
-        If(rgb_module.pwmCount == 0xFF, NextState("RGB_INCREMENT")).Else(
-            NextValue(rgb_module.pwmCount, rgb_module.pwmCount + 1),
+        If(rgb_module.pwm_count == 0xFF, NextState("RGB_INCREMENT")).Else(
+            NextValue(rgb_module.pwm_count, rgb_module.pwm_count + 1),
             NextState("INC_DELAY"),
         ),
     )
@@ -76,40 +94,47 @@ def main():
         "RGB_INCREMENT",
         If(
             rgb_module.red_inc,
-            NextValue(rgb_module.RedCount, rgb_module.RedCount + 1),
-            NextValue(rgb_module.BlueCount, rgb_module.BlueCount - 1)
+            NextValue(rgb_module.red_count, rgb_module.red_count + 1),
+            NextValue(rgb_module.blue_count, rgb_module.blue_count - 1),
         )
         .Elif(
             rgb_module.green_inc,
-            NextValue(rgb_module.GreenCount, rgb_module.GreenCount + 1),
-            NextValue(rgb_module.RedCount, rgb_module.RedCount - 1),
+            NextValue(rgb_module.green_count, rgb_module.green_count + 1),
+            NextValue(rgb_module.red_count, rgb_module.red_count - 1),
         )
         .Elif(
             rgb_module.blue_inc,
-            NextValue(rgb_module.BlueCount, rgb_module.BlueCount + 1),
-            NextValue(rgb_module.GreenCount, rgb_module.GreenCount - 1)
+            NextValue(rgb_module.blue_count, rgb_module.blue_count + 1),
+            NextValue(rgb_module.green_count, rgb_module.green_count - 1),
         )
         .Else(
-            NextValue(rgb_module.RedCount, 0),
-            NextValue(rgb_module.GreenCount, 0),
-            NextValue(rgb_module.BlueCount, 0),
+            NextValue(rgb_module.red_count, 0),
+            NextValue(rgb_module.green_count, 0),
+            NextValue(rgb_module.blue_count, 0),
         ),
-        NextState("INCREMENT"), NextValue(rgb_module.pwmCount, 0),
+        NextState("INCREMENT"),
+        NextValue(rgb_module.pwm_count, 0),
     )
 
-    rgb_module.comb += leds[0].eq(rgb_module.pwmCount < rgb_module.BlueCount)
-    rgb_module.comb += leds[1].eq(rgb_module.pwmCount < rgb_module.GreenCount)
-    rgb_module.comb += leds[2].eq(rgb_module.pwmCount < rgb_module.RedCount)
-    rgb_module.comb += leds[3].eq(rgb_module.pwmCount < rgb_module.GreenCount)
-    rgb_module.comb += leds[4].eq(rgb_module.pwmCount < rgb_module.RedCount)
-    rgb_module.comb += leds[5].eq(rgb_module.pwmCount < rgb_module.BlueCount)
-    rgb_module.comb += rgb_module.red_inc.eq((rgb_module.GreenCount == 0) & (rgb_module.RedCount < 0xFF))
-    rgb_module.comb += rgb_module.green_inc.eq((rgb_module.BlueCount == 0) & (rgb_module.GreenCount < 0xFF))
-    rgb_module.comb += rgb_module.blue_inc.eq((rgb_module.RedCount == 0) & (rgb_module.BlueCount < 0xFF))
+    rgb_module.comb += leds[0].eq(rgb_module.pwm_count < rgb_module.blue_count)
+    rgb_module.comb += leds[1].eq(rgb_module.pwm_count < rgb_module.green_count)
+    rgb_module.comb += leds[2].eq(rgb_module.pwm_count < rgb_module.red_count)
+    rgb_module.comb += leds[3].eq(rgb_module.pwm_count < rgb_module.green_count)
+    rgb_module.comb += leds[4].eq(rgb_module.pwm_count < rgb_module.red_count)
+    rgb_module.comb += leds[5].eq(rgb_module.pwm_count < rgb_module.blue_count)
+    rgb_module.comb += rgb_module.red_inc.eq(
+        (rgb_module.green_count == 0) & (rgb_module.red_count < 0xFF)
+    )
+    rgb_module.comb += rgb_module.green_inc.eq(
+        (rgb_module.blue_count == 0) & (rgb_module.green_count < 0xFF)
+    )
+    rgb_module.comb += rgb_module.blue_inc.eq(
+        (rgb_module.red_count == 0) & (rgb_module.blue_count < 0xFF)
+    )
 
     for idx in range(8):
-        rgb_module.comb += ctr_leds[idx].eq(rgb_module.pwmCount[idx])
-        rgb_module.comb += ctr_leds[idx + 8].eq(rgb_module.RedCount[idx])
+        rgb_module.comb += ctr_leds[idx].eq(rgb_module.pwm_count[idx])
+        rgb_module.comb += ctr_leds[idx + 8].eq(rgb_module.red_count[idx])
 
     nexys_platform.build(rgb_module)
 
