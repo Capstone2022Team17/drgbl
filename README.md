@@ -14,8 +14,8 @@ Here is an idea of what will be added:
 Please note that even though this is for a `Forest Kitten 33 / VU33P` the underliying code for the Alveo U280 board has the same interface except for the fact that we can talk to the host through the JTAG Bone or through a PCIE interface.
 
 ## Project Requirements
-* Creating a BIST module that can be applied to each of the 28 available AXI interfaces to the HBM
-* Creating a Python script that communicates with the board over JTAG to activate the BISTs
+* Create a BIST module that can be applied to each of the 28 available AXI interfaces to the HBM
+* Create a Python script that communicates with the board over JTAG to activate the BISTs
 * Replace the AXI-Lite Interfaces with AXI-Full Interfaces
 
 ## What we plan to do next
