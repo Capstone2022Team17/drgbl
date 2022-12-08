@@ -2,7 +2,7 @@
 
 ![DRGBL Logo](/docs/FDB273BD-66BB-4464-9FAC-8E479D60BDC9.jpeg)
 
-Hi we are BYU Capstone Team 17 (DRGBL)!
+Hi! We are BYU Capstone Team 17 (DRGBL)!
 
 We are working on the FPGA High Badwitdth Memory Interfacing and Monitoring Project!
 
