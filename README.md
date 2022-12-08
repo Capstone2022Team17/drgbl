@@ -1,6 +1,14 @@
-# DRGBL
-![DRGBL Logo](/docs/logo.svg)
-## The FPGA High Bandwith Memory Interfacing and Monitoring Project
+# The FPGA High Bandwith Memory Interfacing and Monitoring Project
+
+![DRGBL Logo](/docs/FDB273BD-66BB-4464-9FAC-8E479D60BDC9.jpeg)
+
+Hi we are BYU Capstone Team 17 (DRGBL)!
+
+We are working on the FPGA High Badwitdth Memory Interfacing and Monitoring Project!
+
+If you have any questions please reach out at capstone2022.team17@gmail.com.
+
+## Our Project
 
 The purpose of LiteX, an open-source program by enjoy-digital, is to “provide a convenient and efficient infrastructure to create FPGA Cores/SoCs, to explore various digital design architectures and create full FPGA based systems.” LiteX supports many boards and their various capabilities. However, LiteX does not support all boards and must continue to be developed over time. 
 
