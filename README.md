@@ -13,7 +13,7 @@ Our project statement says the following: Implement the existing core, develop a
 * Replace the AXI-Lite Interfaces with AXI-Full Interfaces
 
 ## What we palan to do next
-* We are currently working on a custom fork of the litex-hub/litex-boards and changing the alveo u280 project to implement the new bists and change the AXI ports from AXI Lite to AXI full
+* We are currently working on a custom fork of the litex-hub/litex-boards and changing the alveo u280 project to implement the new BISTs and change the AXI ports from AXI Lite to AXI full
 
 https://github.com/Capstone2022Team17/litex-boards
 
