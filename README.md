@@ -30,16 +30,16 @@ Please note that even though this is for a `Forest Kitten 33 / VU33P` the underl
 * Use the existing code of the LiteDRAM BISTs to create a BIST for the HBM
 * To do this we are currently working on a custom fork of the `litex-hub/litex-boards` and changing the alveo u280 project to implement the new BISTs and change the AXI ports from AXI Lite to AXI full
 
-https://github.com/Capstone2022Team17/litex-boards
+[Forked litex-boards](https://github.com/Capstone2022Team17/litex-boards)
 
 ## What Is currently being worked on
 * Forked 2 repositories `litex` and `litedram` from the litex repository.
 * Using the `litedram` to create a new controller for an HBM and created a repository called `litehbm`
   * Goal is to add the `litehbm` to the main repository from `enjoy-digital`
 
-https://github.com/Capstone2022Team17/litex
+[Forked LiteX](https://github.com/Capstone2022Team17/litex)
 
-https://github.com/Capstone2022Team17/litehbm
+[LiteHBM](https://github.com/Capstone2022Team17/litehbm)
 
 ## What is in this Repository
 * rgb_pwm has a basic migen script that gradually changes the rgb leds to different colors.
