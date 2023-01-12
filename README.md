@@ -32,6 +32,15 @@ Please note that even though this is for a `Forest Kitten 33 / VU33P` the underl
 
 https://github.com/Capstone2022Team17/litex-boards
 
+## What Is currently being worked on
+* Forked 2 repositories `litex` and `litedram` from the litex repository.
+* Using the `litedram` to create a new controller for an HBM and created a repository called `litehbm`
+  * Goal is to add the `litehbm` to the main repository from `enjoy-digital`
+
+https://github.com/Capstone2022Team17/litex
+
+https://github.com/Capstone2022Team17/litehbm
+
 ## What is in this Repository
 * rgb_pwm has a basic migen script that gradually changes the rgb leds to different colors.
 * rgb_pwm_withSoC is a basic SoC used to control the rgb leds.
