@@ -1,8 +1,4 @@
 # Documentation
-## FDB273BD-66BB-4464-9FAC-8E479D60BDC9.jpeg
-- JPEG of DRGBL logo
-## logo.svg
-- SVG of the DRGBL logo (without background)
 ## pg276-axi-hbm-en-us-1.0.pdf
 ### Overview
 - This is the Documentation for the HBM2 that is on the Alveo U280 board
@@ -31,3 +27,8 @@
 |Destination AXI Port: 0 – 15| 31:28 |
 |HBM Address Bits| 27:5 |
 |Unused Address Bits| 4:0 |
+
+## FDB273BD-66BB-4464-9FAC-8E479D60BDC9.jpeg
+- JPEG of DRGBL logo
+## logo.svg
+- SVG of the DRGBL logo (without background)
