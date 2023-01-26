@@ -83,5 +83,72 @@
  - https://github.com/enjoy-digital/litex/blob/master/litex/build/parser.py
   - creates a parser to turn LiteX code into something that can be turned into a Verilog file
 
+## How the `xilinx_alveo_u280.py` runs
+
+### In `def main()`
+
+#### Makes LiteXArgumentParser
+- LiteX argument parser creates an object that can hold all the information that is needed to create the HDL
+ - It also holds an array of arguments that are used to set defaults of wires and clocks and other things 
+- Adds Alveo u280 platform
+- sets the system clock frequency to 150e6
+- sets default DDram channel to 0
+- Enables PCIe support
+- Generates PCIe Driver
+- Enables HBM2 use
+- Enables the Analyzer (for basic IO)
+- Enables the LED Chaser
+#### parses the argument 
+Now we have and `args` that has all the info for calling the other 2 classes
+#### checks if we are using the HBM
+If we are we change the system clock to 250e6
+#### Creates the `soc`
+Calls `BaseSOC(...,...,...,...)`
+
+Uses the `args` for the inputs of BaseSoc
+
+In BaseSoc it starts instanciating the physical hardware.
+
+The first thing it does is set some variables
+ - `sys_clk_freq` sets to 150e6 (default is 150e6)
+ - `ddram_channel` sets to 0 (default is 0)
+ - `with_pcie` sets to true (default is false)
+ - `with_led_chaser` sets to true (default is false)
+ - `with_hbm` sets to true (default is false)
+ - `**kwargs` array of arguments that can be passed in
+
+Then it sets the platform to the Alveo u280 platform (prenamed wires to connect to the board)
+
+#### Creates the `_CRG`
+
+Uses the fucntion `ClockDomain()` to set some values
+ - `ClockDomain()` creates new clocks
+ - `self.cd_sys` creates system clock
+ - `self.cd_hbm_ref` creates HBM refrence clock
+ - `self.cd_apb` creates clock for apb (what is this?)
+
+Then it moves onto seting some things for the HBM
+
+- `self.pill = pll = USMMCM(speedgrade=-2)`
+ - TODO What does this do?
+- it registers clock in (and does some other stuff I dont know)
+- it creates clock out with the system frequency
+- it creates the HBM refrence clock and sets the frequency to 100e6
+- it creates the APB clock and sets frequency to 100e6
+- adds platform constraints for the System clock and the APB clock
+
+Finishes creating the CRG
+
+Going back to `BaseSoC`
+
+Initalizes the SoCCore
+ - https://github.com/enjoy-digital/litex/blob/master/litex/soc/integration/soc_core.py
+ - given the arguments `platform, sys_clk_freq, ident="LiteX SoC on Alveo U280 (ES1)", **kwargs)
+
+
+
+
+
+
 
 
