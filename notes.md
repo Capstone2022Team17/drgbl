@@ -119,7 +119,7 @@ The first thing it does is set some variables
 
 Then it sets the platform to the Alveo u280 platform (prenamed wires to connect to the board)
 
-#### Creates the `_CRG`
+### Creates the `_CRG`
 
 Uses the fucntion `ClockDomain()` to set some values
  - `ClockDomain()` creates new clocks
@@ -139,7 +139,7 @@ Then it moves onto seting some things for the HBM
 
 Finishes creating the CRG
 
-Going back to `BaseSoC`
+### Going back to `BaseSoC`
 
 Initalizes the SoCCore
  - https://github.com/enjoy-digital/litex/blob/master/litex/soc/integration/soc_core.py
@@ -176,7 +176,7 @@ Adds PCIe port the the project (pcie_x4)
 
 Adds LED chaser
 
-Going back to `main()`
+### Going back to `main()`
 
 Creates new buildier using the SOC
 
