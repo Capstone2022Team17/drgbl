@@ -143,12 +143,42 @@ Going back to `BaseSoC`
 
 Initalizes the SoCCore
  - https://github.com/enjoy-digital/litex/blob/master/litex/soc/integration/soc_core.py
- - given the arguments `platform, sys_clk_freq, ident="LiteX SoC on Alveo U280 (ES1)", **kwargs)
+ - given the arguments `platform, sys_clk_freq, ident="LiteX SoC on Alveo U280 (ES1)", **kwargs)`
+ - Initalizes
+  - Bus paramaters ("wishbone")
+  - CPU parameters ("Vexriscv")
+  - CFU parameters
+  - ROM parameters
+  - SRAM parameters
+  - MAIN_RAM parameters
+  - CSR parametsers
+  - Interrupt parameters
+  - Identifier parameters
+  - UART parameters
+  - Timer parameters
+  - Controller parameters
+  - uses `**Kwargs` for setting other parameters
 
+Creates the CPU
 
+Creates the HBM  core(line 111)
 
+Gets the HBM .xci file to add
 
+adds AXI ports to the HBM
+- Creates HBM axi port
+- Creates Axi Lite port
+- Convirts the HBM axi port and converts it to axi lite 
+- adds the convirted axi port as a submodule
+- adds a slave to the bus that connects to the convierted axi port
 
+Adds PCIe port the the project (pcie_x4)
 
+Adds LED chaser
 
+Going back to `main()`
+
+Creates new buildier using the SOC
+
+Creates the driver for the PCIe connection
 
