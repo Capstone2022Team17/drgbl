@@ -121,15 +121,18 @@ Then it sets the platform to the Alveo u280 platform (prenamed wires to connect 
 
 ### Creates the `_CRG`
 
-Uses the fucntion `ClockDomain()` to set some values
+Uses the function `ClockDomain()` to set some values
  - `ClockDomain()` creates new clocks
  - `self.cd_sys` creates system clock
- - `self.cd_hbm_ref` creates HBM refrence clock
- - `self.cd_apb` creates clock for apb (what is this?)
+ - `self.cd_hbm_ref` creates HBM reference clock
+ - `self.cd_apb` creates clock for apb (what is this?) - apb is the Advance Peripheral Bus protocol, which uses its own clock
 
-Then it moves onto seting some things for the HBM
+Then it moves onto setting some things for the HBM
 
 - `self.pill = pll = USMMCM(speedgrade=-2)`
+- PLL - phase-locked loop
+- MMCM - mixed-mode clock manager
+- PLL - used to sync clock signals or generate new ones
  - TODO What does this do?
 - it registers clock in (and does some other stuff I dont know)
 - it creates clock out with the system frequency
