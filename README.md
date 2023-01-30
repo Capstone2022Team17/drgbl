@@ -19,11 +19,11 @@ As part of this, we have forked 3 different repositories for this project.
 ## Forked Repositories
 [Forked LiteX](https://github.com/Capstone2022Team17/litex)
 
-* This is where most of the SOC/AXI stuff is located.
+* This is where most of the SOC/AXI implementation is located.
 
 [LiteHBM](https://github.com/Capstone2022Team17/litehbm)
 
-* Forked from the LiteDram to see if we can buid a BIST from the liteDram BIST.
+* Forked from the LiteDram to see if we can bulid a BIST from the liteDram BIST.
 
 [Forked litex-boards](https://github.com/Capstone2022Team17/litex-boards)
 
@@ -50,5 +50,5 @@ As part of this, we have forked 3 different repositories for this project.
 
 
 ## What is in this Repository
-* rgb_pwm has a basic migen script that gradually changes the RGB leds to different colors.
+* rgb_pwm has a basic Migen script that gradually changes the RGB leds to different colors.
 * rgb_pwm_withSoC is a basic SoC used to control the rgb leds.
