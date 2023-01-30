@@ -23,7 +23,7 @@ As part of this, we have forked 3 different repositories for this project.
 
 [LiteHBM](https://github.com/Capstone2022Team17/litehbm)
 
-* Forked from the LiteDram to see if we can bulid a BIST from the liteDram BIST.
+* Forked from the LiteDram to see if we can build a BIST from the liteDram BIST.
 
 [Forked litex-boards](https://github.com/Capstone2022Team17/litex-boards)
 
