@@ -6,9 +6,9 @@ Hi! We are BYU Capstone Team 17 (DRGBL)!
 
 We are working on the FPGA High Badwitdth Memory Interfacing and Monitoring Project!
 
-If you have any questions please reach out at capstone2022.team17@gmail.com.
+Our Background and Project information can be found [Here!](/docs/background.md)
 
-Feel free to look at our background and project info [Here!](/docs/background.md)
+If you have any questions please reach out at capstone2022.team17@gmail.com.
 
 ## Project Requirements
 * Create a BIST module that can be applied to each of the 28 available AXI interfaces to the HBM
@@ -31,25 +31,21 @@ As part of this we have forked 3 diffrent repositories for this project.
 
 ## What we are working on
 
-### Zepram
-* Focus: Migen
-* Task: Simplified HBM writer in Migen (ignoring system/verilog)
+### Zepram - Migen
 
-### Pablo/Grant
-* Focus: Verilog AXI + HBM Simulation
-* Grant Task: Simulate HBM (not liteX) 
-  * How does axi work with the HBM?
-* Pablo Task: State machine memory reader/writer
-  * Create basic read/write state machine in Verilog that could be created in LiteX.
+- [ ] Understand how to write to the HBM using Migen
 
-### Hayden
-* Fucus: Litex
-* Task: Build ability to simulate Litex AXI
+### Pablo/Grant - Verilog AXI + HBM Simulation
 
-### Tyler
-* Focus: Litex system integration + Architecture
-* Task: ILA to probe design
-#### Tasks
+- [ ] Pablo: Create basic read/write state machine in Verilog
+- [ ] Grant: Simulate the HBM outside of LiteX
+
+### Hayden - LiteX
+
+- [ ] Build ability to simulate Litex AXI
+
+### Tyler - Litex system integration + Architecture
+
 - [ ] Add ILA to LiteX project.
 
 
