@@ -1,8 +1,12 @@
 # Documentation
-## pg276-axi-hbm-en-us-1.0.pdf
+
 ### Overview
 - This is the Documentation for the HBM2 that is on the Alveo U280 board
+
 ### Important info from document
+
+<details><summary> Click to view important info from document</summary>
+<p>
 
 #### Core Overview
 > The AXI High Bandwidth Memory Controller provides access to one or both the 1024-bit wide HBM stacks depending on the selected device; 64 Gb for 4H devices or 128 Gb for 8H devices. Each stack is split into eight independent memory channels, each of which is further divided into two 64-bit pseudo channels. Pseudo channel memory access is limited to its own section of the memory (1/16 of the stack capacity). Furthermore, each memory channel can operate at an independent clock rate that is an integer divide of a global reference clock.
@@ -39,7 +43,5 @@
 |HBM Address Bits| 27:5 |
 |Unused Address Bits| 4:0 |
 
-## FDB273BD-66BB-4464-9FAC-8E479D60BDC9.jpeg
-- JPEG of DRGBL logo
-## logo.svg
-- SVG of the DRGBL logo (without background)
+</p>
+</details>
