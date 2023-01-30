@@ -19,9 +19,7 @@ Special Concerns or Other Information Related to the Proposed Project
 Students assigned to this project should have familiarity with FPGA design, system-on-chip (SOC) technologies, and embedded systems.
 
 ### Company Sponsoring Project
-Google
-![Alt text](./Google_2015_logo.svg)
-<img src="Google_2015_logo.svg">
+![Google Logo](/Google_2015_logo.svg)
 
 ### Company Sponsor
 
