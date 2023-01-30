@@ -1,6 +1,6 @@
 # The FPGA High Bandwith Memory Interfacing and Monitoring Project
 
-![DRGBL Logo](/docs/Photos/Logo.svg)
+![DRGBL Logo](/docs/Photos/Drgbl_Logo.jpeg)
 
 Hi! We are BYU Capstone Team 17 (DRGBL)!
 
