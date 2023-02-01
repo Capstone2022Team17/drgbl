@@ -31,22 +31,9 @@ As part of this, we have forked 3 different repositories for this project.
 
 ## What we are working on
 
-### Zepram - Migen
+We are working on geting the axi interface to work with the HBM and creating a simulation of the LiteX project in LiteX. In order to do that we are working on diffrent aspects in parallel. 
 
-- [ ] Understand how to write to the HBM using Migen
-
-### Pablo/Grant - Verilog AXI + HBM Simulation
-
-- [ ] Pablo: Create a basic read/write state machine in Verilog
-- [ ] Grant: Simulate the HBM outside of LiteX
-
-### Hayden - LiteX
-
-- [ ] Build ability to simulate Litex AXI
-
-### Tyler - Litex system integration + Architecture
-
-- [ ] Add ILA to LiteX project.
+To see a more detailed and individualized tasks check out our project [Here](https://github.com/users/Capstone2022Team17/projects/1).
 
 
 ## What is in this Repository
