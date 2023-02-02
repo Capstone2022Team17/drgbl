@@ -78,7 +78,7 @@
 `from litescope import LiteScopeAnalyzer`
 - https://github.com/enjoy-digital/litescope/tree/master/litescope
 
-### in main function
+### imports in main function
 `from litex.build.parser.py import LiteXArgumentParser`
  - https://github.com/enjoy-digital/litex/blob/master/litex/build/parser.py
   - creates a parser to turn LiteX code into something that can be turned into a Verilog file
