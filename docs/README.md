@@ -1,9 +1,18 @@
+# Documents / Background info
+
+This file lists the names of the documents and provides links to them if they are other markdown files, otherwise they will provide a brief overview of the document and the key info for our project.
+
+# background.md
+
+[This](background.md) file holds all the given background information for our project. This document holds both given and new background information that we have created in order to better understand what is going on in our project.
+
+TODO: Needs the updated diagrams of the LiteX project and the HBM.
+
 # pg276-axi-hbm-en-us-1.0.pdf
 
-## Overview
-- This is the Documentation for the HBM2 that is on the Alveo U280 board
+This is the Documentation for the HBM2 that is on the Alveo U280 board
 
-## Important info from document
+### Important info from document
 
 <details><summary> Click to view important info from document</summary>
 <p>
