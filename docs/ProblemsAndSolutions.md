@@ -1,5 +1,7 @@
 # Problem and Solutions
 
+### Simulation problem
+
 One problem we had was trying to figure out how to simulate our designs with the alveo board. We had a single serial connection, and Litex did not clearly explain how to run the bios while using Litex's simulation tool. Eventually, in the logs of the irc chat, we found the following written by florent:
 
 12:40 <florent> so build with --uart-name=crossover+uartbone
