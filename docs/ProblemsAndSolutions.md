@@ -2,7 +2,9 @@
 
 ## Simulation Litscope needing 2 ports problem
 
-One problem we had was trying to figure out how to simulate our designs with the alveo board. We had a single serial connection, and Litex did not clearly explain how to run the bios while using Litex's simulation tool. Eventually, in the logs of the irc chat, we found the following written by florent:
+One problem we had was trying to figure out how to simulate our designs with the alveo board. We had a single serial connection, and Litex did not clearly explain how to run the bios while using Litex's simulation tool. Eventually, in the logs of the irc chat, we found the following written by florent.
+
+The following was from 2021-05-24 in the irc chat logs.
 
 ```
 12:40 <florent> so build with --uart-name=crossover+uartbone
