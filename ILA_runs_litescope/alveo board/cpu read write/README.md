@@ -7,7 +7,7 @@ All of these files have the following signals:
 
 * A scope clock, the same as the system clock signal.
 * A scope trigger signal. (I believe this is related to whatever variable triggers the run to start.)
-* A set of cpu signals for the dbus and ibus.
-* A set of signals for the wishbone slave port eventually connecting to the AXI interface of the hbm module. These all begin with ```soc_interface0```.
+* A set of cpu signals for the dbus and ibus. These are litex wishbone interfaces.
+* A set of signals for the wishbone slave port eventually connecting to the AXI interface of the hbm module. These all begin with ```soc_interface0```. In this design, the wishbone interface for the cpu dbus and ibus have the same datawidth and address width of the wishbone interface of this slave.
 * The set of AXI interface signals connected to this wishbone. These all begin with ```soc_usphbm2```.
 
