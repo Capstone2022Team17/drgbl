@@ -1,0 +1,97 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Mon Jan 30 17:09:19 2023
+[*]
+[dumpfile] "/home/palm9727/litex-builds/newer-build/dump.vcd"
+[dumpfile_mtime] "Mon Jan 30 17:05:49 2023"
+[dumpfile_size] 154113
+[savefile] "/home/palm9727/AllSimulations/nexys video bist and ports/bist checker run start.gtkw"
+[timestart] 0
+[size] 1608 986
+[pos] -1 -1
+*0.000000 1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 552
+[signals_width] 446
+[sst_expanded] 1
+[sst_vpaned_height] 278
+@28
+scope_clk
+scope_trig
+@200
+-
+-
+-[fsm signals]
+@22
+main_sdram_checker_base[28:0]
+@28
+main_sdram_checker_done
+@22
+main_sdram_checker_end[28:0]
+main_sdram_checker_errors[31:0]
+main_sdram_checker_length[28:0]
+@28
+main_sdram_checker_random_addr
+main_sdram_checker_random_data
+main_sdram_checker_start
+@22
+main_sdram_checker_ticks[31:0]
+@200
+-
+-
+-[dma signals]
+@28
+main_sdram_checker_sink_sink_first
+main_sdram_checker_sink_sink_last
+@22
+main_sdram_checker_sink_sink_payload_address[24:0]
+@28
+main_sdram_checker_sink_sink_ready
+main_sdram_checker_sink_sink_valid
+main_sdram_checker_source_source_first
+main_sdram_checker_source_source_last
+@22
+main_sdram_checker_source_source_payload_data[127:0]
+@28
+main_sdram_checker_source_source_ready
+main_sdram_checker_source_source_valid
+@200
+-
+-
+-[native port signals cmd, rdata, wdata]
+@28
+main_dram_native_port_read_cmd_first
+main_dram_native_port_read_cmd_last
+@22
+main_dram_native_port_read_cmd_payload_addr[24:0]
+@28
+main_dram_native_port_read_cmd_payload_we
+main_dram_native_port_read_cmd_ready
+main_dram_native_port_read_cmd_valid
+main_dram_native_port_read_rdata_first
+main_dram_native_port_read_rdata_last
+@22
+main_dram_native_port_read_rdata_payload_data[127:0]
+@28
+main_dram_native_port_read_rdata_ready
+main_dram_native_port_read_rdata_valid
+main_dram_native_port_read_wdata_first
+main_dram_native_port_read_wdata_last
+@22
+main_dram_native_port_read_wdata_payload_data[127:0]
+main_dram_native_port_read_wdata_payload_we[15:0]
+@28
+main_dram_native_port_read_wdata_ready
+main_dram_native_port_read_wdata_valid
+main_dram_native_port_read_flush
+main_dram_native_port_read_lock
+@200
+-
+@201
+-
+@200
+-[generator signals]
+@28
+main_sdram_generator_done
+main_sdram_generator_start
+[pattern_trace] 1
+[pattern_trace] 0

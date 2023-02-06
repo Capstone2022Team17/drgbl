@@ -1,0 +1,81 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Mon Jan 30 16:11:26 2023
+[*]
+[dumpfile] "/home/palm9727/litex-builds/newer-build/dump.vcd"
+[dumpfile_mtime] "Mon Jan 30 16:02:17 2023"
+[dumpfile_size] 199960
+[savefile] "/home/palm9727/AllSimulations/nexys video bist and ports/bist generator run start.gtkw"
+[timestart] 0
+[size] 1578 1013
+[pos] 1607 -28
+*0.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 493
+[signals_width] 454
+[sst_expanded] 1
+[sst_vpaned_height] 288
+@28
+scope_clk
+scope_trig
+@200
+-
+-
+-[fsm signals]
+@22
+main_sdram_generator_base[28:0]
+@28
+main_sdram_generator_done
+@22
+main_sdram_generator_end[28:0]
+main_sdram_generator_length[28:0]
+@28
+main_sdram_generator_random_addr
+main_sdram_generator_random_data
+main_sdram_generator_start
+@22
+main_sdram_generator_ticks[31:0]
+@200
+-
+-
+-[dma signals]
+@28
+main_sdram_generator_sink_sink_first
+main_sdram_generator_sink_sink_last
+@22
+main_sdram_generator_sink_sink_payload_address[24:0]
+main_sdram_generator_sink_sink_payload_data[127:0]
+@28
+main_sdram_generator_sink_sink_ready
+main_sdram_generator_sink_sink_valid
+@200
+-
+-
+-[native port signals (wdata, rdata, cmd)]
+@28
+main_dram_native_port_write_cmd_first
+main_dram_native_port_write_cmd_last
+@22
+main_dram_native_port_write_cmd_payload_addr[24:0]
+@28
+main_dram_native_port_write_cmd_payload_we
+main_dram_native_port_write_cmd_ready
+main_dram_native_port_write_cmd_valid
+main_dram_native_port_write_rdata_first
+main_dram_native_port_write_rdata_last
+@22
+main_dram_native_port_write_rdata_payload_data[127:0]
+@28
+main_dram_native_port_write_rdata_ready
+main_dram_native_port_write_rdata_valid
+main_dram_native_port_write_wdata_first
+main_dram_native_port_write_wdata_last
+@22
+main_dram_native_port_write_wdata_payload_data[127:0]
+main_dram_native_port_write_wdata_payload_we[15:0]
+@28
+main_dram_native_port_write_wdata_ready
+main_dram_native_port_write_wdata_valid
+main_dram_native_port_write_flush
+main_dram_native_port_write_lock
+[pattern_trace] 1
+[pattern_trace] 0
