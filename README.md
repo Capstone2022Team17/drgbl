@@ -12,6 +12,10 @@ Our Project **Documentation** and **Background** information can be found [Here!
 ## Contact us
 If you have any questions, please reach out at capstone2022.team17@gmail.com.
 
+## Overview of Project Implementation
+
+![DRGBL Project](/docs/Photos/Drgbl_Logo.jpeg)
+
 ## Project Requirements
 * Create a BIST module that can be applied to each of the 28 available AXI interfaces to the HBM
 * Create a Python script that communicates with the board over JTAG to activate the BISTs
