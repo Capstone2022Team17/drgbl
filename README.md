@@ -14,7 +14,7 @@ If you have any questions, please reach out at capstone2022.team17@gmail.com.
 
 ## Overview of Project Implementation
 
-![DRGBL Project](/docs/Photos/System_Design_Diagram.drawio.png)
+![DRGBL Project](/docs/Photos/System_Design_Diagram.drawio (1).png)
 
 ## Project Requirements
 * Create a BIST module that can be applied to each of the 28 available AXI interfaces to the HBM
