@@ -17,27 +17,35 @@ If you have any questions, please reach out at capstone2022.team17@gmail.com.
 ![DRGBL Project](/docs/Photos/System_Design_Diagram.drawio%20(1).png)
 
 ## Project Requirements
-* Create a BIST module that can be applied to each of the 28 available AXI interfaces to the HBM
-* Create a Python script that communicates with the board over JTAG to activate the BISTs
-* Replace the AXI-Lite Interfaces with AXI-Full Interfaces
+The system requirements can be summarized as follows:
+* A memory bandwidth generator module that can be applied to each of the 32 available
+AXI interfaces to the HBM
+* Each memory bandwidth generator module has these functionalities
+  * Continuous reads to HBM of a specified number of bytes a specified number of
+times.
+  * Continuous writes to HBM of a specified number of bytes a specified number of
+times
+* A hardware counter records the number of transactions and the number of clock cycles
+to determine the transaction speed
+* A program that communicates with the board over UART to activate the BISTs
 
 As part of this, we have forked 3 different repositories for this project.
 ## Forked Repositories
 [Forked LiteX](https://github.com/Capstone2022Team17/litex)
 
-* This is where most of the SOC/AXI implementation is located.
+* This is where most of the SOC/AXI implementation is located and also where we have implemented new BIOS code.
 
 [LiteHBM](https://github.com/Capstone2022Team17/litehbm)
 
-* Forked from the LiteDram to see if we can build a BIST from the liteDram BIST.
+* Forked from the LiteDram to see if we can build a Bandwidth Generator from the liteDram BIST and see how its data colection is done.
 
 [Forked litex-boards](https://github.com/Capstone2022Team17/litex-boards)
 
-* This is where most of our code is. [Here](https://github.com/Capstone2022Team17/litex-boards/blob/master/litex_boards/targets/xilinx_alveo_u280.py) is the exact file that is being updated for this project. It's called the `xilinx_alveo_u280.py`.
+* This is where most of our code is. [Here](https://github.com/Capstone2022Team17/litex-boards/blob/master/litex_boards/targets/xilinx_alveo_u280.py) is the exact file that is being updated for this project. It's called the `xilinx_alveo_u280.py`. We have updated this file to have the cpu dependent on the DRAM and now we have full access to the 32 HBM ports.
 
 ## What we are working on
 
-We are working on geting the axi interface to work with the HBM and creating a simulation of the LiteX project in LiteX. In order to do that we are working on diffrent aspects in parallel. 
+We now have working Bandwidth generators and are working on BIOS implementations of their controll. We are also working on data colection and data analysis.
 
 To see a more detailed and individualized tasks check out our project [Here](https://github.com/users/Capstone2022Team17/projects/1).
 
