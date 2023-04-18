@@ -7,7 +7,7 @@ Hi! We are BYU Capstone Team 17 (DRGBL)!
 We are working on the FPGA High-Bandwidth Memory Interfacing and Monitoring Project!
 
 ## Documentation / Background Info
-Our Project **Documentation** and **Background** information can be found on our [Wiki] (https://github.com/Capstone2022Team17/drgbl/wiki)
+Our Project **Documentation** and **Background** information can be found on our [Wiki](https://github.com/Capstone2022Team17/drgbl/wiki)
 
 ## Contact us
 If you have any questions, please reach out at capstone2022.team17@gmail.com.
