@@ -64,13 +64,13 @@ This project file holds links to the sources of each import and generaly what is
 Then we go over how the file runes and adds all the hardware.
 
 # RelevantLinks-Notes.md
+Now on Wiki
+<!-- [This](RelevantLinks-Notes.md) file is a one stop shop for all the Information you need to get started on the project. -->
 
-[This](RelevantLinks-Notes.md) file is a one stop shop for all the Information you need to get started on the project.
-
-TODO: Needs to still be filled out.
+<!-- TODO: Needs to still be filled out. -->
 
 # ProblemsAndSolutions.md
+Now on Wiki
+<!-- [This](ProblemsAndSolutions.md) file holds the problems we ran into and the solutions we found. -->
 
-[This](ProblemsAndSolutions.md) file holds the problems we ran into and the solutions we found. 
-
-TODO: This is still needs to be populated with information. 
+<!-- TODO: This is still needs to be populated with information. -->
