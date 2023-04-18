@@ -56,12 +56,14 @@ This is the Documentation for the HBM2 that is on the Alveo U280 board
 </details>
 
 # ProjectFile.md
-
+This is now on the Wiki
+<!---
 [This](ProjectFile.md) file that explaines the `xilinx_alveo_u280.py` project file.
 
 This project file holds links to the sources of each import and generaly what is being used by each import.
 
 Then we go over how the file runes and adds all the hardware.
+-->
 
 # RelevantLinks-Notes.md
 Now on Wiki
