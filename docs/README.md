@@ -4,6 +4,8 @@ This file lists the names of the documents and provides links to them if they ar
 
 # background.md
 
+This is now on the Wiki
+<!---
 [This](background.md) file holds all the given background information for our project. This document holds both given and new background information that we have created in order to better understand what is going on in our project.
 
 TODO: Needs the updated diagrams of the LiteX project and the HBM.
@@ -54,6 +56,7 @@ This is the Documentation for the HBM2 that is on the Alveo U280 board
 
 </p>
 </details>
+-->
 
 # ProjectFile.md
 This is now on the Wiki
