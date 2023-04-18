@@ -37,7 +37,7 @@ As part of this, we have forked 3 different repositories for this project.
 
 [LiteHBM](https://github.com/Capstone2022Team17/litehbm)
 
-* Forked from the LiteDram to see if we can build a Bandwidth Generator from the liteDram BIST and see how its data colection is done.
+* This contains all of our project files as a way to put everything together as a seprate module. We ended up giving up on getting that to work becuse it would make it more difficult for the user to use our code.
 
 [Forked litex-boards](https://github.com/Capstone2022Team17/litex-boards)
 
