@@ -9,6 +9,8 @@ We are working on the FPGA High-Bandwidth Memory Interfacing and Monitoring Proj
 ## Documentation / Background Info
 Our Project **Documentation** and **Background** information can be found on our [Wiki](https://github.com/Capstone2022Team17/drgbl/wiki)
 
+We also made a YouTube video detailing our contributions to the LiteX project and our work on High-Bandwidth Memory. You can watch it here: [YouTube Link](https://youtu.be/x_bVxbWX6Fo)
+
 ## Contact us
 If you have any questions, please reach out at capstone2022.team17@gmail.com.
 
